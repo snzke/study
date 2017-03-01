@@ -13,7 +13,7 @@ public class TCP_IP_NIO_Server {
         try{
             ServerSocketChannel ssc = ServerSocketChannel.open();
             ServerSocket serverSocket = ssc.socket();
-            serverSocket.bind(new InetSocketAddress(9100));
+            serverSocket.bind(new InetSocketAddress(9200));
             ssc.configureBlocking(false);
             Selector selector = Selector.open();
             ssc.register(selector, SelectionKey.OP_ACCEPT);

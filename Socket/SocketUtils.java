@@ -60,6 +60,12 @@ public class SocketUtils {
         return sb.toString();
     }
 
+    /**
+     * 处理信道选择器
+     * @param selector
+     * @return
+     * @throws IOException
+     */
     public static SelectionKey handleSelector(Selector selector) throws IOException {
         // 阻塞至连接IO事件发生，或达到超时时间
         // 如果希望一直等待，可调用无参select方法

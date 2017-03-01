@@ -8,7 +8,7 @@ public class TCP_IP_BIO_Client {
     public void init(){
         try {
             // 创建连接，如果域名解析不了会抛出UnknownHostException，当连接不上时会抛出IOException。
-            Socket socket = new Socket("127.0.0.1", 9000);
+            Socket socket = new Socket("127.0.0.1", 9100);
             // 设置连接超时时间，60秒
 //            socket.connect(new InetSocketAddress("127.0.0.1", 9000), 6000);
             // 创建向服务器写入流的PrintWriter

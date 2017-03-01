@@ -15,7 +15,7 @@ public class TCP_IP_NIO_Client {
             // 设置为非阻塞模式
             socketChannel.configureBlocking(false);
             // 对于非阻塞模式，立刻返回false，表示连接正在建立中
-            socketChannel.connect(new InetSocketAddress("127.0.0.1",9100));
+            socketChannel.connect(new InetSocketAddress("127.0.0.1",9200));
             Selector selector = Selector.open();
             // 向Channel注册Selector和连接事件
             socketChannel.register(selector, SelectionKey.OP_CONNECT);

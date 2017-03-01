@@ -10,7 +10,7 @@ public class TCP_IP_BIO_Server {
     public void init(){
         try {
             // 创建对本地指定端口的监听，如端口冲突则抛出SocketException，其他网络IO方面的异常则抛出IOException
-            ServerSocket serverSocket = new ServerSocket(9000);
+            ServerSocket serverSocket = new ServerSocket(9100);
             // 设置等待连接的超时时间，60秒
 //            serverSocket.setSoTimeout(60000);
             // 接受客户端建立连接的请求，并返回Socket对象，以便和客户端进行交互，交互的方式和客户端相同
