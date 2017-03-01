@@ -1,6 +1,4 @@
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -8,7 +6,7 @@ import java.net.Socket;
 /**
  * Created by snzke on 2017/2/28.
  */
-public class BIOServer {
+public class TCP_IP_BIO_Server {
     public void init(){
         try {
             // 创建对本地指定端口的监听，如端口冲突则抛出SocketException，其他网络IO方面的异常则抛出IOException
@@ -31,12 +29,12 @@ public class BIOServer {
             // 向服务器发送字符串信息，要注意的是，此处即使写入失败也不会跑出异常信息，并且一直会阻塞到写入操作系统或网络IO出现异常为止。
             printWriter.println("11111");
 //
-            TCP_IP_BIO.readAndSendMsg(socket, "我很高兴", 0);
+            SocketUtils.readAndSendMsg(socket, "我很高兴", 0);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
     public static void main(String [] args){
-        new BIOServer().init();
+        new TCP_IP_BIO_Server().init();
     }
 }
