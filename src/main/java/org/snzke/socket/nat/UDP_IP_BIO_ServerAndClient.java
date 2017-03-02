@@ -1,3 +1,5 @@
+package org.snzke.socket.nat;
+
 import java.io.IOException;
 import java.net.*;
 

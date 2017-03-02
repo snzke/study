@@ -1,3 +1,5 @@
+package org.snzke.socket.util;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -151,6 +153,11 @@ public class SocketUtils {
         return selectionKey;
     }
 
+    /**
+     * 将字节缓存转换为String
+     * @param buffer
+     * @return
+     */
     public static String byteBufferToString(ByteBuffer buffer) {
         Charset charset;
         CharsetDecoder decoder;
@@ -166,16 +173,12 @@ public class SocketUtils {
         return null;
     }
     private static SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS ");
+
+    /**
+     * 获取当前时间
+     * @return
+     */
     public static String getLogTime(){
         return sdf.format(new Date());
-    }
-
-    public static void main(String [] args){
-        System.out.println(SelectionKey.OP_ACCEPT);
-        System.out.println(SelectionKey.OP_CONNECT);
-        System.out.println(SelectionKey.OP_READ);
-        System.out.println(SelectionKey.OP_WRITE);
-
-        System.out.println(~SelectionKey.OP_WRITE);
     }
 }

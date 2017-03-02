@@ -1,3 +1,7 @@
+package org.snzke.socket.nat;
+
+import org.snzke.socket.util.SocketUtils;
+
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.net.ServerSocket;
