@@ -1,15 +1,10 @@
-package org.snzke.webservice;
+package org.snzke.spring.rmi;
 
 import org.snzke.socket.util.SocketUtils;
-
-import javax.jws.WebService;
-import javax.jws.soap.SOAPBinding;
 
 /**
  * Created by snzke on 2017/3/2.
  */
-@WebService(name = "Business", serviceName = "BusinessService", targetNamespace = "http://webservice.snzke.org/client")
-@SOAPBinding(style = SOAPBinding.Style.RPC)
 public class BusinessImpl implements Business {
     @Override
     public String echo(String message) {
@@ -18,6 +13,6 @@ public class BusinessImpl implements Business {
             System.exit(0);
         }
         System.out.println(SocketUtils.getLogTime() + "接收到消息：" + message);
-        return "服务器返回：" + message;
+        return "服务器当前时间：" + SocketUtils.getLogTime();
     }
 }

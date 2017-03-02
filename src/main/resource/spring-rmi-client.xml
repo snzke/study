@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+    <bean id="businessService" class="org.springframework.remoting.rmi.RmiProxyFactoryBean">
+        <!-- 10.101.205.57 为本机IP -->
+        <!-- BusinessService 必须跟 spring-rmi-server.xml 文件中 rmiBusinessService > serviceName 相同 -->
+        <property name="serviceUrl" value="rmi://10.101.205.57:1093/BusinessService"></property>
+        <property name="serviceInterface" value="org.snzke.spring.rmi.Business"></property>
+    </bean>
+</beans>

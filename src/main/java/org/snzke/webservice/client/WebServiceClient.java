@@ -9,5 +9,4 @@ public class WebServiceClient {
         Business business = businessService.getBusinessPort();
         business.echo("你好啊");
     }
-
 }
