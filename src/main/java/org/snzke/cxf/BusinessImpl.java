@@ -1,15 +1,13 @@
-package org.snzke.webservice;
+package org.snzke.cxf;
 
 import org.snzke.socket.util.SocketUtils;
 
 import javax.jws.WebService;
-import javax.jws.soap.SOAPBinding;
 
 /**
  * Created by snzke on 2017/3/2.
  */
-@WebService(name = "Business", serviceName = "BusinessService", targetNamespace = "http://webservice.snzke.org/client")
-@SOAPBinding(style = SOAPBinding.Style.RPC)
+@WebService(serviceName = "BusinessService", endpointInterface = "org.snzke.cxf.Business")
 public class BusinessImpl implements Business {
     @Override
     public String echo(String message) {

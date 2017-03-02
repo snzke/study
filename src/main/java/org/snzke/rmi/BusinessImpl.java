@@ -15,6 +15,6 @@ public class BusinessImpl implements Business {
             System.exit(0);
         }
         System.out.println(SocketUtils.getLogTime() + "接收到消息：" + message);
-        return "服务器返回：" + message;
+        return "服务器当前时间：" + SocketUtils.getLogTime();
     }
 }
