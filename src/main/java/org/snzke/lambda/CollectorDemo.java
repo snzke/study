@@ -10,9 +10,9 @@ import static org.snzke.lambda.Dish.menu;
 import static org.snzke.lambda.Dish.CaloricLevel;
 
 /**
- * Created by snzke on 2017/3/12.
+ * 收集器示例
  */
-public class CollectorsDemo {
+public class CollectorDemo {
     public static void groupingByDemo(){
         System.out.println("菜单总数：" + menu.stream().count());
         System.out.println("菜单热量总和：" + menu.stream().collect(summingInt(Dish::getCalories)));

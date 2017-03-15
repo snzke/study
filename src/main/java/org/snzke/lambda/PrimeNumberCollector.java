@@ -7,7 +7,6 @@ import java.util.stream.IntStream;
 
 /**
  * 分组质数收集器
- * Created by snzke on 2017/3/12.
  */
 public class PrimeNumberCollector implements Collector<Integer, Map<Boolean, List<Integer>>, Map<Boolean, List<Integer>>>{
 
