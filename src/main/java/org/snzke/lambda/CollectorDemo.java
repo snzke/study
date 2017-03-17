@@ -1,13 +1,12 @@
 package org.snzke.lambda;
 
-import java.util.Comparator;
-import java.util.HashSet;
-import java.util.Optional;
+import java.util.*;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 import static java.util.stream.Collectors.*;
-import static org.snzke.lambda.Dish.menu;
 import static org.snzke.lambda.Dish.CaloricLevel;
+import static org.snzke.lambda.Dish.menu;
 
 /**
  * 收集器示例
@@ -25,7 +24,10 @@ public class CollectorDemo {
             else if(dish.getCalories() > 400) return CaloricLevel.普通;
             else return CaloricLevel.健康;
         })));
-        System.out.println("根据热量自定义分组：" + menu.stream().collect(groupingBy(Dish::getCaloricLevel)));
+        System.out.println("根据热量级别分组，并根据热量排序：" + menu.stream().collect(groupingBy(Dish::getCaloricLevel, Collectors.collectingAndThen(toList(), (list) -> {
+            list.sort(Comparator.comparingInt(Dish::getCalories));
+            return list;
+        }))));
         System.out.println("根据类型和热量二级分组：" + menu.stream().collect(groupingBy(Dish::getType, groupingBy(Dish::getCaloricLevel))));
         System.out.println("根据类型计算热量总和：" + menu.stream().collect(groupingBy(Dish::getType, summingInt(Dish::getCalories))));
         System.out.println("根据类型统计热量级别<Set>" + menu.stream().collect(groupingBy(Dish::getType, mapping(Dish::getCaloricLevel, toSet()))));
