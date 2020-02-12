@@ -1,11 +1,11 @@
-package org.snzke.lock.spin;
+package org.snzke.lock.reentrant;
 
 import org.snzke.lock.Lock;
 
 import java.util.concurrent.atomic.AtomicReference;
 
 /**
- * 可重入自旋锁
+ * 可重入自旋锁（适用于业务递归加锁场景）
  * 优点：
  *  1.高性能
  * 缺点：
