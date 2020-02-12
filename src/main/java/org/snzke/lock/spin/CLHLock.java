@@ -32,7 +32,6 @@ public class CLHLock implements Lock {
         if (preNode != null) {
             while (preNode.isLocked) {
             }
-            preNode = null;
             LOCAL.set(node);
         }
     }
@@ -44,6 +43,5 @@ public class CLHLock implements Lock {
         if (!UPDATER.compareAndSet(this, node, null)) {
             node.isLocked = false;
         }
-        node = null;
     }
 }
