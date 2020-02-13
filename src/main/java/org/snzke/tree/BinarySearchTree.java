@@ -7,8 +7,8 @@ package org.snzke.tree;
 public class BinarySearchTree<K extends Comparable<K>, V> extends AbstractTree<K, V> implements Tree<K, V> {
 
     @Override
-    public void insert(Entry<K, V> entry) {
-        insertNode(new Node<>(null, null, null, entry));
+    public void insert(K key, V value) {
+        insertNode(new Node<>(null, null, null, new Entry<>(key, value)));
     }
 
     private void insertNode(Node<K, V> node) {

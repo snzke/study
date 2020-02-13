@@ -6,7 +6,7 @@ public class TreeTest {
     public static void main(String[] args) {
         Tree<String, Dish> bt = new BinarySearchTree<>();
 
-        Dish.MENU.forEach(dish -> bt.insert(new Entry<>(dish.getName(), dish)));
+        Dish.MENU.forEach(dish -> bt.insert(dish.getName(), dish));
         bt.foreach(System.out::println);
         System.out.println("----------------------");
         bt.delete("宫保鸡丁");

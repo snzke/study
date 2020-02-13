@@ -1,5 +1,6 @@
 package org.snzke.tree;
 
+import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 
 /**
@@ -11,9 +12,10 @@ import java.util.function.Consumer;
 public interface Tree<K extends Comparable<K>, V> {
     /**
      * 插入元素
-     * @param entry 元素
+     * @param key key
+     * @param value value
      */
-    void insert(Entry<K, V> entry);
+    void insert(K key, V value);
 
     /**
      * 根据Key 删除元素
@@ -35,8 +37,14 @@ public interface Tree<K extends Comparable<K>, V> {
     Node<K, V> getRoot();
 
     /**
-     * 遍历元素
-     * @param consumer 元素消费者
+     * 遍历值
+     * @param consumer 值消费者
      */
-    void foreach(Consumer<Entry<K, V>> consumer);
+    void foreach(Consumer<V> consumer);
+
+    /**
+     * 遍历键值
+     * @param consumer 键值消费者
+     */
+    void foreach(BiConsumer<K, V> consumer);
 }

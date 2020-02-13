@@ -1,5 +1,6 @@
 package org.snzke.tree;
 
+import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 
 /**
@@ -17,15 +18,28 @@ public abstract class AbstractTree<K extends Comparable<K>, V> implements Tree<K
     }
 
     @Override
-    public void foreach(Consumer<Entry<K, V>> consumer){
-        foreach0(root, consumer);
+    public void foreach(Consumer<V> consumer){
+        foreach(root, consumer);
     }
 
-    private void foreach0(Node<K, V> node, Consumer<Entry<K, V>> consumer){
+    @Override
+    public void foreach(BiConsumer<K, V> consumer){
+        foreach(root, consumer);
+    }
+
+    private void foreach(Node<K, V> node, Consumer<V> consumer){
         if (node != null && node.getEntry() != null) {
-            foreach0(node.getLeft(), consumer);
-            consumer.accept(node.getEntry());
-            foreach0(node.getRight(), consumer);
+            foreach(node.getLeft(), consumer);
+            consumer.accept(node.getEntry().getValue());
+            foreach(node.getRight(), consumer);
+        }
+    }
+
+    private void foreach(Node<K, V> node, BiConsumer<K, V> consumer){
+        if (node != null && node.getEntry() != null) {
+            foreach(node.getLeft(), consumer);
+            consumer.accept(node.getEntry().getKey(), node.getEntry().getValue());
+            foreach(node.getRight(), consumer);
         }
     }
 }
