@@ -7,11 +7,14 @@ import java.util.List;
  * 为学习Java 8 特性而创建的菜品类
  */
 public class Dish {
-
-    private final String name;          // 名称
-    private final boolean vegetarian;   // 素菜标识
-    private final int calories;         // 卡路里(热量)
-    private final Type type;            // 类型
+    /** 名称 */
+    private final String name;
+    /** 素菜标识 */
+    private final boolean vegetarian;
+    /** 卡路里(热量) */
+    private final int calories;
+    /** 类型 */
+    private final Type type;
 
     public Dish(String name, boolean vegetarian, int calories, Type type) {
         this.name = name;
@@ -37,45 +40,23 @@ public class Dish {
     }
 
     public CaloricLevel getCaloricLevel(){
-        if(getCalories() <= 400) return CaloricLevel.健康;
-        else if(getCalories() <= 700) return CaloricLevel.普通;
-        else return CaloricLevel.高脂肪;
+        if(getCalories() <= 400) { return CaloricLevel.健康; }
+        else if(getCalories() <= 700) { return CaloricLevel.普通; }
+        else { return CaloricLevel.高脂肪; }
     }
 
     /**
      * 菜品类型
      */
     public enum Type {
-        /**
-         * 肉类
-         */
-        肉,
-        /**
-         * 鱼类
-         */
-        鱼,
-        /**
-         * 其他
-         */
-        其他
+        肉, 鱼, 其他
     }
 
     /**
      * 热量级别
      */
     public enum CaloricLevel{
-        /**
-         * 低热量
-         */
-        健康,
-        /**
-         * 普通
-         */
-        普通,
-        /**
-         * 高热量
-         */
-        高脂肪
+        健康, 普通, 高脂肪
     }
 
     @Override
@@ -86,7 +67,7 @@ public class Dish {
     /**
      * 默认菜单
      */
-    public static final List<Dish> menu =
+    public static final List<Dish> MENU =
             Arrays.asList( new Dish("回锅肉", false, 800, Dish.Type.肉),
                     new Dish("水煮牛肉", false, 700, Dish.Type.肉),
                     new Dish("宫保鸡丁", false, 400, Dish.Type.肉),
