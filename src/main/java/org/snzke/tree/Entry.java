@@ -2,11 +2,11 @@ package org.snzke.tree;
 
 /**
  * 树节点元素
- * @param <K> Key
- * @param <V> Value
+ * @param <K> Key 需要实现 Comparable 接口
+ * @param <V> Value 任意类型
  * @author snzke
  */
-public class Entry<K extends Comparable<? extends K>, V> {
+public class Entry<K extends Comparable<K>, V> {
     private K key;
     private V value;
 
@@ -32,4 +32,8 @@ public class Entry<K extends Comparable<? extends K>, V> {
         this.value = value;
     }
 
+    @Override
+    public String toString() {
+        return null != value ? value.toString() : null;
+    }
 }

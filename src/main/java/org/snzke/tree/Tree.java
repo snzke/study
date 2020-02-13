@@ -8,10 +8,10 @@ import java.util.function.Consumer;
  * @param <V> Value 任意类型
  * @author snzke
  */
-public interface Tree<K extends Comparable<? extends K>, V> {
+public interface Tree<K extends Comparable<K>, V> {
     /**
      * 插入元素
-     * @param entry
+     * @param entry 元素
      */
     void insert(Entry<K, V> entry);
 
@@ -32,7 +32,7 @@ public interface Tree<K extends Comparable<? extends K>, V> {
      * 获取树的根元素
      * @return 根元素
      */
-    Entry<K, V> getRoot();
+    Node<K, V> getRoot();
 
     /**
      * 遍历元素
