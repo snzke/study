@@ -12,6 +12,54 @@ public class Node<K extends Comparable<K>, V> {
     private Node<K, V> parent;
     private Entry<K, V> entry;
 
+    /**
+     * 是否为末尾节点（无子节点）
+     * @return 布尔值
+     */
+    public boolean getIsLast(){
+        return null == left && null == right;
+    }
+
+    /**
+     * 是否为叶子节点（拥有左右子节点）
+     * @return 布尔值
+     */
+    public boolean getIsLeaf(){
+        return null != left && null != right;
+    }
+
+    /**
+     * 是否仅包含左叶子节点
+     * @return 布尔值
+     */
+    public boolean onlyLeftLeaf(){
+        return null != left && null == right;
+    }
+
+    /**
+     * 是否仅包含右叶子节点
+     * @return 布尔值
+     */
+    public boolean onlyRightLeaf(){
+        return null == left && null != right;
+    }
+
+    /**
+     * 当前叶子是否为父级的左叶子节点
+     * @return 布尔值
+     */
+    public boolean getIsLeftLeaf(){
+        return null != parent && this.equals(parent.getLeft());
+    }
+
+    /**
+     * 当前叶子是否为父级的右叶子节点
+     * @return 布尔值
+     */
+    public boolean getIsRightLeaf(){
+        return null != parent && this.equals(parent.getRight());
+    }
+
     public Node<K, V> getLeft() {
         return left;
     }
@@ -53,4 +101,5 @@ public class Node<K extends Comparable<K>, V> {
         this.parent = parent;
         this.entry = entry;
     }
+
 }
